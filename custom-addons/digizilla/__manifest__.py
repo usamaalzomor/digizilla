@@ -8,6 +8,7 @@
         'security/ir.model.access.csv',
         'views/digizilla_views.xml',
         'reports/digizilla_report.xml',
+        'reports/digizilla_report_template.xml',
     ],
     'assets': {
         'web.assets_backend': [
