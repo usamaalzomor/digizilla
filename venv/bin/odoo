@@ -1,7 +1,0 @@
-#!/home/usama/Desktop/digizilla-assesment/odoo/venv/bin/python3
-# EASY-INSTALL-DEV-SCRIPT: 'odoo==17.0','odoo'
-__requires__ = 'odoo==17.0'
-__import__('pkg_resources').require('odoo==17.0')
-__file__ = '/home/usama/Desktop/digizilla-assesment/odoo/odoo-17/setup/odoo'
-with open(__file__) as f:
-    exec(compile(f.read(), __file__, 'exec'))
