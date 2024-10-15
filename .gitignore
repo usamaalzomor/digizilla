@@ -1,3 +1,6 @@
 venv/
 odoo.log
 odoo.conf
+odoo17_data
+odoo17.conf
+__pycache__

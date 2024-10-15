@@ -1,0 +1,103 @@
+<!-- digizilla/views/digizilla_views.xml -->
+<odoo>
+    <!-- Menu Items -->
+    <menuitem id="menu_digizilla_root" name="Digizilla" sequence="10"/>
+
+    <menuitem id="menu_digizilla_main" name="Digizilla Records" parent="menu_digizilla_root" sequence="1"/>
+
+    <!-- Action -->
+    <record id="action_digizilla_records" model="ir.actions.act_window">
+        <field name="name">Digizilla Records</field>
+        <field name="res_model">digizilla.addon</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Digizilla record
+            </p>
+        </field>
+    </record>
+
+    <!-- Link Action to Menu -->
+    <menuitem id="menu_digizilla_records_action" parent="menu_digizilla_main" action="action_digizilla_records" sequence="1"/>
+
+    <!-- Kanban View -->
+    <record id="view_digizilla_kanban" model="ir.ui.view">
+        <field name="name">digizilla.addon.kanban</field>
+        <field name="model">digizilla.addon</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <!-- Fields to fetch for performance optimization -->
+                <field name="name"/>
+                <field name="gender"/>
+                <field name="company_id"/>
+                <field name="joining_date"/>
+                <field name="country"/>
+                
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_kanban_record">
+                            <strong><field name="name"/></strong>
+                            <div>Gender: <field name="gender"/></div>
+                            <div>Company: <field name="company_id"/></div>
+                            <div>Joining Date: <field name="joining_date"/></div>
+                            <div>Country: <field name="country"/></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <!-- List (Tree) View -->
+    <record id="view_digizilla_tree" model="ir.ui.view">
+        <field name="name">digizilla.addon.tree</field>
+        <field name="model">digizilla.addon</field>
+        <field name="arch" type="xml">
+            <tree string="Digizilla Records">
+                <field name="name"/>
+                <field name="gender"/>
+                <field name="country"/>
+                <field name="joining_date"/>
+                <field name="company_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_digizilla_form" model="ir.ui.view">
+        <field name="name">digizilla.addon.form</field>
+        <field name="model">digizilla.addon</field>
+        <field name="arch" type="xml">
+            <form string="Digizilla Record">
+                <header>
+                    <!-- Placeholder for future buttons (e.g., Print) -->
+                </header>
+                <sheet>
+                    <notebook>
+                        <page string="Details">
+                            <group>
+                                <field name="name"/>
+                                <field name="gender"/>
+                                <field name="country"/>
+                                <field name="joining_date"/>
+                                <field name="tags"/>
+                                <field name="customer_ids" widget="many2many_tags"/>
+                                <field name="company_id"/>
+                            </group>
+                        </page>
+                        <page string="Notes">
+                            <field name="notes"/>
+                        </page>
+                        <page string="Comments">
+                            <field name="comments"/>
+                        </page>
+                    </notebook>
+                    <!-- Chatter Section -->
+                    <div class="oe_chatter" name="message_ids"></div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>
